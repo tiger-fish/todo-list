@@ -2,7 +2,12 @@ let todos = ["item 1", "item 2", "item 3"];
 
 // 1. it should have a function to display todos
 function displayTodos() {
-  console.log(todos);
+  console.log("My Todos:", todos);
+}
+
+// 1a. function to display previous todos
+function displayBeforeTodos() {
+  console.log("Previous Todos:", todos);
 }
 
 // 2. it should have a function to add todos
