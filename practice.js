@@ -9,7 +9,7 @@ let todoList = {
   displayTodo: function() {
     console.log('My Todos', todos);
   }, 
-  addTodo: function() {
+  addTodo: function(todoText) {
     this.todos.push({
       todoText: todoText,
       completed: false
@@ -17,15 +17,16 @@ let todoList = {
     this.displayTodo();
   },
   changeTodo: function(position, todoText) {
-    this.todos[position].todoText = todoText;
+    this.todos[position].todoText = 
+    todoText; 
     this.displayTodo();
   },
-  deleteTodo (position) {
+  deleteTodo: function(position) {
     this.todos.splice(position, 1);
     this.displayTodo();
   }, 
   toggleCompleted: function () {
-    let todo = this.todos[position]; 
-    todo = !completed;
+    let todo = this.todos[position]
+    todo.completed = !todo.completed;
   }
 }
