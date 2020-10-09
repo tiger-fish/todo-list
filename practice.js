@@ -1,32 +1,43 @@
-// 1. todoList.addTodo should add objects
-
-// 2. todoList.changeTodo should change the todoText property
-
-// 3. todoList.toggleCompleted should change the completed propery
-
 let todoList = {
-  todos=[], 
-  displayTodo: function() {
-    console.log('My Todos', todos);
-  }, 
-  addTodo: function(todoText) {
+  todos: [],
+  displayTodos: function () {
+    if (this.todos.length === 0) {
+      console.log("Your todo list is empty.");
+    } else {
+      console.log("My Todos:");
+      for (let i = 0; i < this.todos.length; i++) {
+        if (this.todos[i].completed === true) {
+          console.log("(x)", this.todos[i].todoText);
+        } else {
+          console.log("( )", this.todos[i].todoText);
+        }
+      }
+    }
+  },
+  addTodo: function (todoText) {
     this.todos.push({
       todoText: todoText,
-      completed: false
-    })
-    this.displayTodo();
+      completed: false,
+    });
+    this.displayTodos();
   },
-  changeTodo: function(position, todoText) {
-    this.todos[position].todoText = 
-    todoText; 
-    this.displayTodo();
+  changeTodo: function (position, todoText) {
+    // this.todos[position] = newValue;
+    this.todos[position].todoText = todoText;
+    this.displayTodos();
   },
-  deleteTodo: function(position) {
+  deleteTodo: function (position) {
     this.todos.splice(position, 1);
-    this.displayTodo();
-  }, 
-  toggleCompleted: function () {
-    let todo = this.todos[position]
+    this.displayTodos();
+  },
+  toggleCompleted: function (position) {
+    let todo = this.todos[position];
     todo.completed = !todo.completed;
+    this.displayTodos();
+  },
+  // 1. .toggleAll: if everything's true, make everything false
+  // 2. .toggleAll: Otherwise, make everything true 
+  toggleAll: function () {
+    if ()
   }
-}
+};
