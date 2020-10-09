@@ -35,9 +35,26 @@ let todoList = {
     todo.completed = !todo.completed;
     this.displayTodos();
   },
-  // 1. .toggleAll: if everything's true, make everything false
-  // 2. .toggleAll: Otherwise, make everything true 
   toggleAll: function () {
-    if ()
-  }
+    // 1. Get number of completed todos
+    let totalTodos = this.todos.length;
+    let completedTodos = 0;
+    for (let i = 0; i < totalTodos; i++) {
+      if (this.todos[i].completed === true) {
+        completedTodos++;
+      }
+    }
+    // 2. .toggleAll: if everything's true, make everything false
+    if (completedTodos === totalTodos) {
+      for (let i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = false;
+      }
+    } // 3. .toggleAll: Otherwise, make everything true
+    else {
+      for (let i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = true;
+      }
+    }
+    this.displayTodos();
+  },
 };
