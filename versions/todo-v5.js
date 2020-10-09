@@ -1,10 +1,22 @@
 let todoList = {
   todos: [],
-  // 1. dispplayTodos should show .todoText
-  // 2. displayTodos should show tell you if .todos is empty
-  // 3. displayTodos should show .completed
   displayTodos: function () {
-    console.log("My todos:", this.todos);
+    // 2. displayTodos should show tell you if .todos is empty
+
+    if (this.todos.length === 0) {
+      console.log("Your todo list is empty.");
+    } else {
+      console.log("My Todos:");
+      // 1. displayTodos should show .todoText
+      // 3. displayTodos should show .completed
+      for (let i = 0; i < this.todos.length; i++) {
+        if (this.todos[i].completed === true) {
+          console.log("(x)", this.todos[i].todoText);
+        } else {
+          console.log("( )", this.todos[i].todoText);
+        }
+      }
+    }
   },
   addTodo: function (todoText) {
     this.todos.push({
