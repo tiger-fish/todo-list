@@ -111,3 +111,4 @@ let handlers = {
     todoList.deleteAll();
   },
 };
+

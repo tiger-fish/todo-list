@@ -10,41 +10,61 @@
       <h1 class="header__title">Todo List</h1>
     </header>
     <main class="main">
-      <div class="toggles">
-        <button onclick="handlers.displayTodos()" class="toggles__button">
-          display todos
+      <div class="toggle-all">
+        <button onclick="handlers.displayTodos()" class="toggle-all_button">
+          display all
         </button>
-        <button onclick="handlers.toggleAll()" class="toggles__button">
-          toggle all
+        <button onclick="handlers.toggleAll()" class="toggle-all_button">
+          toggle completed
         </button>
-        <button onclick="handlers.deleteAll()" class="toggles__button">
+        <button onclick="handlers.deleteAll()" class="toggle-all_button">
           delete all
         </button>
       </div>
+
       <div class="add-todo">
-        <input id="addTodoTextInput" type="text" />
+        <input id="addTodoTextInput" type="text" class="add-todo__input" />
         <button onclick="handlers.addTodo()" class="add-todo__button">
           add todo
         </button>
       </div>
+
       <div class="change-todo">
-        <input id="changeTodoPosition" type="number" />
-        <input id="changeTodoTextInput" type="text" />
-        <button onclick="handlers.changeTodo()" class="change-todo__button">
+        <input
+          id="changeTextTodoPosition"
+          type="number"
+          class="change-todo__input"
+        />
+        <input
+          id="changeTextTodoInput"
+          type="text"
+          class="change-todo__input"
+        />
+        <button onclick="handlers.changeTodo()" class="change-todo_button">
           change todo
         </button>
       </div>
+
       <div class="delete-todo">
-        <input id="deleteTodoPosition" type="number" />
+        <input
+          id="deleteTodoTextPosition"
+          type="number"
+          class="delete-todo__input"
+        />
         <button onclick="handlers.deleteTodo()" class="delete-todo__button">
           delete todo
         </button>
       </div>
+
       <div class="toggle-completed-todo">
-        <input id="toggleCompletedPosition" type="number" />
+        <input
+          id="toggleCompletedPosition"
+          type="number"
+          class="toggle-completed-todo__input"
+        />
         <button
           onclick="handlers.toggleCompleted()"
-          class="toggle-completed-todo__button"
+          class="toggle-completed-todo_button"
         >
           toggle complete
         </button>
