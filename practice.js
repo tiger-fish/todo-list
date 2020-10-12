@@ -1,5 +1,7 @@
 let todoList = {
+  // place to store todos
   todos: [],
+  // way to display todos
   displayTodos: function () {
     if (this.todos.length === 0) {
       console.log("Your todo list is empty");
@@ -14,6 +16,7 @@ let todoList = {
       }
     }
   },
+  // way to add todo
   addTodo: function (textTodo) {
     this.todos.push({
       textTodo: textTodo,
@@ -21,19 +24,23 @@ let todoList = {
     });
     this.displayTodos();
   },
+  // way to change todo
   changeTodo: function (position, textTodo) {
     this.todos[position].textTodo = textTodo;
     this.displayTodos();
   },
+  // way to delete todo
   deleteTodo: function (position) {
     this.todos.splice(position, 1);
     this.displayTodos();
   },
+  // toggle todo[position].completed
   toggleCompleted: function (position) {
     let todo = this.todos[position];
     todo.completed = !todo.completed;
     this.displayTodos();
   },
+  // toggle all todos
   toggleAll: function () {
     let totalTodos = this.todos.length;
     let completedTodos = 0;
@@ -54,24 +61,22 @@ let todoList = {
     }
     this.displayTodos();
   },
+  // delete all todos
   deleteAll: function () {
     this.todos.splice(0, this.todos.length);
     this.displayTodos();
   },
 };
 
-let displayTodosBtn = document.getElementById("display-todos");
-let toggleAllBtn = document.getElementById("toggle-all");
-let deleteAllBtn = document.getElementById("delete-all");
-
-displayTodosBtn.addEventListener("click", function () {
-  todoList.displayTodos();
-});
-
-toggleAllBtn.addEventListener("click", function () {
-  todoList.toggleAll();
-});
-
-deleteAllBtn.addEventListener("click", function () {
-  todoList.deleteAll();
-});
+// html buttons
+let handlers = {
+  displayTodos: function () {
+    todoList.displayTodos();
+  },
+  toggleAll: function () {
+    todoList.toggleAll();
+  },
+  deleteAll: function () {
+    todoList.deleteAll();
+  },
+};
