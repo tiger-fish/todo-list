@@ -38,7 +38,8 @@ let todoList = {
   toggleAll: function () {
     // count totals and completed
     let totalTodos = this.todos.length;
-    let completedTodos = 0;``
+    let completedTodos = 0;
+    ``;
     for (i = 0; i < totalTodos; i++) {
       if (this.todos[i].completed === true) {
         completedTodos++;
@@ -57,3 +58,16 @@ let todoList = {
     this.displayTodos();
   },
 };
+
+// 1. display-todos button should run display todos
+let displayTodosBtn = document.getElementById("display-todos");
+let toggleAllBtn = document.getElementById("toggle-all");
+
+displayTodosBtn.addEventListener("click", function () {
+  todoList.displayTodos();
+});
+
+// 2. toggle-all button should run toggle all
+toggleAllBtn.addEventListener("click", function () {
+  todoList.toggleAll();
+});
