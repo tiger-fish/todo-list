@@ -12,9 +12,6 @@
 
     <main class="main">
       <section class="toggle-all">
-        <button class="toggle-all__btn" onclick="handlers.displayTodos()">
-          display all
-        </button>
         <button class="toggle-all__btn" onclick="handlers.toggleAll()">
           toggle all
         </button>
@@ -66,6 +63,10 @@
           <button class="todo-list__btn" onclick="handlers.deleteTodo()">
             delete todo
           </button>
+        </div>
+
+        <div class="todo-list__item">
+          <ul class="todo-list__display-todos"></ul>
         </div>
       </section>
     </main>

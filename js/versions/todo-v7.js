@@ -7,22 +7,22 @@ let todoList = {
       console.log("My Todos:");
       for (i = 0; i < this.todos.length; i++) {
         if (this.todos[i].completed === true) {
-          console.log("(x)", this.todos[i].textTodo);
+          console.log("(x)", this.todos[i].todoText);
         } else {
-          console.log("( )", this.todos[i].textTodo);
+          console.log("( )", this.todos[i].todoText);
         }
       }
     }
   },
-  addTodo: function (textTodo) {
+  addTodo: function (todoText) {
     this.todos.push({
-      textTodo: textTodo,
+      todoText: todoText,
       completed: false,
     });
     this.displayTodos();
   },
-  changeTodo: function (position, textTodo) {
-    this.todos[position].textTodo = textTodo;
+  changeTodo: function (position, todoText) {
+    this.todos[position].todoText = todoText;
     this.displayTodos();
   },
   deleteTodo: function (position) {
