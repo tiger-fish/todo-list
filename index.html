@@ -9,66 +9,65 @@
     <header class="header">
       <h1 class="header__title">Todo List</h1>
     </header>
+
     <main class="main">
-      <div class="toggle-all">
-        <button onclick="handlers.displayTodos()" class="toggle-all_button">
+      <section class="toggle-all">
+        <button class="toggle-all__btn" onclick="handlers.displayTodos()">
           display all
         </button>
-        <button onclick="handlers.toggleAll()" class="toggle-all_button">
-          toggle completed
+        <button class="toggle-all__btn" onclick="handlers.toggleAll()">
+          toggle all
         </button>
-        <button onclick="handlers.deleteAll()" class="toggle-all_button">
+        <button class="toggle-all__btn" onclick="handlers.deleteAll()">
           delete all
         </button>
-      </div>
+      </section>
+      <section class="todo-list">
+        <div class="todo-list__item">
+          <input id="addTodoTextInput" type="text" class="todo-list__input" />
+          <button class="todo-list__btn" onclick="handlers.addTodo()">
+            add todo
+          </button>
+        </div>
 
-      <div class="add-todo">
-        <input id="addTodoTextInput" type="text" class="add-todo__input" />
-        <button onclick="handlers.addTodo()" class="add-todo__button">
-          add todo
-        </button>
-      </div>
+        <div class="todo-list__item">
+          <input
+            id="positionTodoTextInput"
+            type="number"
+            class="todo-list__input"
+          />
+          <input
+            id="changeTodoTextInput"
+            type="text"
+            class="todo-list__input"
+          />
+          <button class="todo-list__btn" onclick="handlers.changeTodo()">
+            change todo
+          </button>
+        </div>
 
-      <div class="change-todo">
-        <input
-          id="changeTextTodoPosition"
-          type="number"
-          class="change-todo__input"
-        />
-        <input
-          id="changeTextTodoInput"
-          type="text"
-          class="change-todo__input"
-        />
-        <button onclick="handlers.changeTodo()" class="change-todo_button">
-          change todo
-        </button>
-      </div>
+        <div class="todo-list__item">
+          <input
+            id="toggleCompletePosition"
+            type="number"
+            class="todo-list__input"
+          />
+          <button class="todo-list__btn" onclick="handlers.toggleCompleted()">
+            toggle completed
+          </button>
+        </div>
 
-      <div class="delete-todo">
-        <input
-          id="deleteTodoTextPosition"
-          type="number"
-          class="delete-todo__input"
-        />
-        <button onclick="handlers.deleteTodo()" class="delete-todo__button">
-          delete todo
-        </button>
-      </div>
-
-      <div class="toggle-completed-todo">
-        <input
-          id="toggleCompletedPosition"
-          type="number"
-          class="toggle-completed-todo__input"
-        />
-        <button
-          onclick="handlers.toggleCompleted()"
-          class="toggle-completed-todo_button"
-        >
-          toggle complete
-        </button>
-      </div>
+        <div class="todo-list__item">
+          <input
+            id="deleteTodoTextPosition"
+            type="number"
+            class="todo-list__input"
+          />
+          <button class="todo-list__btn" onclick="handlers.deleteTodo()">
+            delete todo
+          </button>
+        </div>
+      </section>
     </main>
     <script src="practice.js"></script>
   </body>

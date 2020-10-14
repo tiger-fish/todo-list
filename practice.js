@@ -1,10 +1,12 @@
 let todoList = {
+  // place to store todos
   todos: [],
+  // display todo
   displayTodos: function () {
     if (this.todos.length === 0) {
       console.log("This list is empty");
     } else {
-      console.log("My Todos:");
+      console.log("My todos:");
       for (i = 0; i < this.todos.length; i++) {
         if (this.todos[i].completed === true) {
           console.log("(x)", this.todos[i].textTodo);
@@ -37,11 +39,13 @@ let todoList = {
   toggleAll: function () {
     let totalTodos = this.todos.length;
     let completedTodo = 0;
+
     for (i = 0; i < totalTodos; i++) {
       if (this.todos[i].completed === true) {
         completedTodo++;
       }
     }
+
     if (completedTodo === totalTodos) {
       for (i = 0; i < totalTodos; i++) {
         this.todos[i].completed = false;
@@ -66,33 +70,39 @@ let handlers = {
   addTodo: function () {
     let addTodoTextInput = document.getElementById("addTodoTextInput");
     todoList.addTodo(addTodoTextInput.value);
-    addTodoTextInput.value = " ";
+    addTodoTextInput.value = "";
   },
   changeTodo: function () {
-    let changeTextTodoPosition = document.getElementById(
-      "changeTextTodoPosition"
+    let positionTodoTextInput = document.getElementById(
+      "positionTodoTextInput"
     );
-    let changeTextTodoInput = document.getElementById("changeTextTodoInput");
+    let changeTodoTextInput = document.getElementById("changeTodoTextInput");
+
     todoList.changeTodo(
-      changeTextTodoPosition.valueAsNumber,
-      changeTextTodoInput.value
+      positionTodoTextInput.valueAsNumber,
+      changeTodoTextInput.value
     );
-    changeTextTodoPosition.value = "";
-    changeTextTodoInput.value = "";
+
+    positionTodoTextInput.value = "";
+    changeTodoTextInput.value = "";
+  },
+  toggleCompleted: function () {
+    let toggleCompletedPosition = document.getElementById(
+      "toggleCompletePosition"
+    );
+
+    todoList.toggleCompleted(toggleCompletedPosition.valueAsNumber);
+
+    toggleCompletedPosition.value = "";
   },
   deleteTodo: function () {
     let deleteTodoTextPosition = document.getElementById(
       "deleteTodoTextPosition"
     );
+
     todoList.deleteTodo(deleteTodoTextPosition.valueAsNumber);
+
     deleteTodoTextPosition.value = "";
-  },
-  toggleCompleted: function () {
-    let toggleCompletedPosition = document.getElementById(
-      "toggleCompletedPosition"
-    );
-    todoList.toggleCompleted(toggleCompletedPosition.valueAsNumber);
-    toggleCompletedPosition.value = "";
   },
   toggleAll: function () {
     todoList.toggleAll();
@@ -101,3 +111,7 @@ let handlers = {
     todoList.deleteAll();
   },
 };
+
+// there should be an li element for every todo
+// each li element should contain .todoText 
+// each list element should show .completed
