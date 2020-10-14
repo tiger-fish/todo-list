@@ -1,6 +1,5 @@
 let todoList = {
-  // place to store todos
-  todos: [],,
+  todos: [],
   addTodo: function (todoText) {
     this.todos.push({
       todoText: todoText,
@@ -42,6 +41,7 @@ let todoList = {
   },
 };
 
+// change data
 let handlers = {
   addTodo: function () {
     let addTodoTextInput = document.getElementById("addTodoTextInput");
@@ -94,6 +94,7 @@ let handlers = {
   },
 };
 
+// only showing what todo looks like
 let view = {
   displayTodos: function () {
     let todosUl = document.querySelector(".todo-list__display-todos");
