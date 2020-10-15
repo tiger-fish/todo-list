@@ -74,14 +74,8 @@ let handlers = {
     toggleCompletedPosition.value = "";
     view.displayTodos();
   },
-  deleteTodo: function () {
-    let deleteTodoTextPosition = document.getElementById(
-      "deleteTodoTextPosition"
-    );
-
-    todoList.deleteTodo(deleteTodoTextPosition.valueAsNumber);
-
-    deleteTodoTextPosition.value = "";
+  deleteTodo: function (position) {
+    todoList.deleteTodo(position);
     view.displayTodos();
   },
   toggleAll: function () {
@@ -98,21 +92,43 @@ let handlers = {
 let view = {
   displayTodos: function () {
     let todosUl = document.querySelector(".todo-list__display-todos");
-    todosUl.innerHTML = "";
+    todosUl.innerHTML = " ";
     for (i = 0; i < todoList.todos.length; i++) {
-      // each li element should contain .todoText
-      // each list element should show .completed
       let todoLi = document.createElement("li");
-      todoLi.classList.add("todo-list__display-item");
-      let todoTextCompletion = 0;
+      todoLi.className = "todo-list__display-item";
       let todo = todoList.todos[i];
+      let todoTextCompletion = 0;
       if (todo.completed === true) {
         todoTextCompletion = "(x) " + todo.todoText;
       } else {
         todoTextCompletion = "( ) " + todo.todoText;
       }
+      // 3. each li should have an id that had the todo position
+      todoLi.id = i;
       todoLi.textContent = todoTextCompletion;
+      // 2. there should be a delete button for each todo
+      todoLi.appendChild(this.createDeleteBtn());
       todosUl.appendChild(todoLi);
     }
   },
+  // 1. there should be a way to create btn
+  createDeleteBtn: function () {
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "delete";
+    deleteBtn.className = "todo-list__delete-btn";
+    return deleteBtn;
+  },
+  setUpEventListeners: function () {
+    // 4. delete button should have access to the todo
+    let todosUl = document.querySelector(".todo-list__display-todos");
+    todosUl.addEventListener("click", function (event) {
+      let elementClicked = event.target;
+      // 5. clicking delete should update todoList.todos and the D0M
+      if (elementClicked.className === "todo-list__delete-btn") {
+        handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+      }
+    });
+  },
 };
+
+view.setUpEventListeners();

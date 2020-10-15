@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+div {
+  margin: 10px auto;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -13,4 +17,12 @@
 .main {
   width: clamp(300px, 80%, 700px);
   margin: 10px auto;
+}
+
+.todo-list__display-todos {
+  list-style-type: none;
+}
+
+.todo-list__delete-btn {
+  margin-left: 10px;
 }
