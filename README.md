@@ -2,6 +2,8 @@
 
 Project for the [Watch and Code](https://watchandcode.com/) course by Gordon Zhu, which teaches a practical application for JS.
 
+Demo: https://tiger-fish.github.io/todo-list/
+
 ## functions to add
 
 - attach the toggleCompleted button to each todo
