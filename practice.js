@@ -19,22 +19,29 @@ let todoList = {
   toggleAll: function () {
     let totalTodos = this.todos.length;
     let completedTodo = 0;
-
-    for (i = 0; i < totalTodos; i++) {
-      if (this.todos[i].completed === true) {
+    this.todos.forEach(function (todo) {
+      if (todo.completed === true) {
         completedTodo++;
       }
-    }
+    });
 
-    if (completedTodo === totalTodos) {
-      for (i = 0; i < totalTodos; i++) {
-        this.todos[i].completed = false;
+    // if (completedTodo === totalTodos) {
+    //   this.todos.forEach(function (todo) {
+    //     todo.completed = false;
+    //   });
+    // } else {
+    //   this.todos.forEach(function (todo) {
+    //     todo.completed = false;
+    //   });
+    // }
+
+    this.todos.forEach(function (todo) {
+      if (completedTodo === totalTodos) {
+        todo.completed = false;
+      } else {
+        todo.completed = true;
       }
-    } else {
-      for (i = 0; i < totalTodos; i++) {
-        this.todos[i].completed = true;
-      }
-    }
+    });
   },
   deleteAll: function () {
     this.todos.splice(0, this.todos.length);
@@ -93,23 +100,22 @@ let view = {
   displayTodos: function () {
     let todosUl = document.querySelector(".todo-list__display-todos");
     todosUl.innerHTML = " ";
-    for (i = 0; i < todoList.todos.length; i++) {
+    todoList.todos.forEach(function (todo, position) {
       let todoLi = document.createElement("li");
       todoLi.className = "todo-list__display-item";
-      let todo = todoList.todos[i];
-      let todoTextCompletion = 0;
+      let todoTextCompletion = "";
       if (todo.completed === true) {
         todoTextCompletion = "(x) " + todo.todoText;
       } else {
         todoTextCompletion = "( ) " + todo.todoText;
       }
       // 3. each li should have an id that had the todo position
-      todoLi.id = i;
+      todoLi.id = position; //replace i with position
       todoLi.textContent = todoTextCompletion;
       // 2. there should be a delete button for each todo
-      todoLi.appendChild(this.createDeleteBtn());
+      todoLi.appendChild(this.createDeleteBtn()); //
       todosUl.appendChild(todoLi);
-    }
+    }, this);
   },
   // 1. there should be a way to create btn
   createDeleteBtn: function () {

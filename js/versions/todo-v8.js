@@ -83,13 +83,15 @@ let handlers = {
     addTodoTextInput.value = "";
   },
   changeTodo: function () {
-    let changeTodoPosition = document.getElementById("changeTodoPosition");
+    let positionTodoTextInput = document.getElementById(
+      "positionTodoTextInput"
+    );
     let changeTodoTextInput = document.getElementById("changeTodoTextInput");
     todoList.changeTodo(
-      changeTodoPosition.valueAsNumber,
+      positionTodoTextInput.valueAsNumber,
       changeTodoTextInput.value
     );
-    changeTodoPosition.value = "";
+    positionTodoTextInput.value = "";
     changeTodoTextInput.value = "";
   },
   deleteTodo: function () {
