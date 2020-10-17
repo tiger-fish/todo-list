@@ -24,17 +24,6 @@ let todoList = {
         completedTodo++;
       }
     });
-
-    // if (completedTodo === totalTodos) {
-    //   this.todos.forEach(function (todo) {
-    //     todo.completed = false;
-    //   });
-    // } else {
-    //   this.todos.forEach(function (todo) {
-    //     todo.completed = false;
-    //   });
-    // }
-
     this.todos.forEach(function (todo) {
       if (completedTodo === totalTodos) {
         todo.completed = false;
