@@ -2,7 +2,7 @@
 
 Project for the [Watch and Code](https://watchandcode.com/) course by Gordon Zhu, which teaches a practical application for JS.
 
-Demo: https://tiger-fish.github.io/todo-list/
+Demo: https://7redeagle.github.io/todo-list/
 
 ## functions to add
 
